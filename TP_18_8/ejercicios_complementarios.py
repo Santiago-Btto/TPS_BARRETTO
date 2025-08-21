@@ -121,7 +121,7 @@ print(mi_nombre)
 mi_nombre_minusc = mi_nombre.lower()
 print(f'{mi_nombre_minusc} (En minusculas)')
 
-print('') # Espacio
+print('') # Espacio 
 
 #EJERCICIO 16
 print('EJERCICIO 16')
@@ -131,3 +131,4 @@ mi_nombre_mayus = mi_nombre.capitalize()
 
 print(mi_nombre_mayus)
 
+print('') # Espacio 
