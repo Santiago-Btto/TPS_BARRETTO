@@ -57,7 +57,7 @@ if (nivel == 'inicial' or nivel == 'intermedio' or nivel == 'avanzado'):
         else: 
             print('No hubo alumnos aprobados')
 
-#Validacion de practica hablada (jueves)alumnasarancel
+#Validacion de practica hablada (jueves)
 if (nivel == 'practica'):
     porc_attendance = float(input('Ingrese el porcentaje de asistencia: '))
     if porc_attendance > 50: #Pide que sea mayor al 50%
