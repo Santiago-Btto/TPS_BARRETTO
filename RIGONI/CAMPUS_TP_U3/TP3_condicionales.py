@@ -13,7 +13,7 @@ print('EJERCICIO 2')
 
 user_note = int(input('Ingrese su nota: '))
 if user_note >= 6:
-    print('Aprobado')
+    print('Aprobado') #Mayor igual a 6 (6 a infinito)
 else:
     print('Desaprobado') 
 
@@ -128,7 +128,71 @@ print('EJERCICIO 9')
 
 earthquake_magnitude = float(input('Ingrese la magnitud del terremoto: '))
 
+#Escala Richter
+if earthquake_magnitude < 3:
+    magnitude = '"Muy leve" (imperceptible)'
+elif  earthquake_magnitude < 4:
+    magnitude = '"Leve" (ligeramente perceptible).'
+elif earthquake_magnitude < 5:
+    magnitude = '"Moderado" (sentido por personas, pero generalmente no causa daños).'
+elif earthquake_magnitude < 6:
+    magnitude = '"Fuerte" (puede causar daños en estructuras débiles).'
+elif earthquake_magnitude < 7:
+    magnitude = '"Muy Fuerte" (puede causar daños significativos).'
+else:
+    magnitude = '"Extremo" (puede causar graves daños a gran escala).' 
+
+print(magnitude)
+
 print('') # Espacio
 
 #EJERCICIO 10
 print('EJERCICIO 10')
+
+hemisphere = input('¿En cual hemisferio se encuentra? (N/S):').lower()
+user_month = input('Ingrese que mes del año es: ').lower()
+user_day = int(input('Ingrese que dia es: '))
+
+month = { # Diccionario de meses
+    'enero': 1,
+    'febrero': 2,
+    'marzo': 3, 
+    'abril': 4,
+    'mayo': 5,
+    'junio': 6,
+    'julio': 7,
+    'agosto': 8,
+    'septiembre': 9,
+    'octubre': 10,
+    'noviembre': 11,
+    'diciembre': 12
+}
+
+# Convertimos el mes a número usando el diccionario
+month_num = month.get(user_month, 0) # Busca en el diccionario la 'clave' con el mes q escribio el usuario
+
+if hemisphere == 'n':
+    if (month_num == 12 and user_day >= 21) or month_num in [1, 2] or (month_num == 3 and user_day <= 20): # verifica si es diciembre 21 >= | O enero o febrero | O marzo <= 20
+        season = "Invierno"
+    elif (month_num == 3 and user_day >= 21) or month_num in [4, 5] or (month_num == 6 and user_day <= 20):
+        season = "Primavera"
+    elif (month_num == 6 and user_day >= 21) or month_num in [7, 8] or (month_num == 9 and user_day <= 20):
+        season = "Verano"
+    else:
+        season = "Otoño"
+
+if hemisphere == 's':
+    if (month_num == 12 and user_day >= 21) or month_num in [1, 2] or (month_num == 3 and user_day <= 20): # verifica si es diciembre 21 >= | O enero o febrero | O marzo <= 20
+        season = "Verano"
+    elif (month_num == 3 and user_day >= 21) or month_num in [4, 5] or (month_num == 6 and user_day <= 20):
+        season = "Otoño"
+    elif (month_num == 6 and user_day >= 21) or month_num in [7, 8] or (month_num == 9 and user_day <= 20):
+        season = "Invierno"
+    else:
+        season = "Primavera"
+
+#Se repite el codigo y solo cambia el hemisferio, se puede simplificar
+
+print(f'Usted se encuentra en: {season}')
+
+print('') # Espacio
