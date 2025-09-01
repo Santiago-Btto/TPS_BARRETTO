@@ -29,9 +29,9 @@ print('Ejercicio WHILE')
 
 import random
 
-from colorama import Fore, Style, init #pip install colorama
+from colorama import Fore, Style, init # pip install colorama
 
-init(autoreset=True) #Inicializar colorama y se resetee conc ada print
+init(autoreset=True) # Inicializar colorama y se resetee los colores
 
 
 options = ['piedra', 'papel', 'tijera']
