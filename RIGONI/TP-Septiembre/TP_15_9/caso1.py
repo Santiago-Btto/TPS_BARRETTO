@@ -38,7 +38,7 @@ while opcion != 10:
             titulo = input("Ingrese el título a actualizar ejemplares: ").lower()
             if titulo in libros:
                 indice = libros.index(titulo)
-                cantidad = int(input(f'Cantidad de ejemplares para "{titulo}": '))
+                cantidad = int(input(f'Cantidad de ejemplares para "{titulo}": ')) 
                 ejemplares[indice] = cantidad
             else:
                 print("El título no está registrado.")
