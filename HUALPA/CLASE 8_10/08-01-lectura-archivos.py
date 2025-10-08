@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Nombre del archivo que queremos leer (ruta relativa)
-RUTA_ARCHIVO = "C:\Users\Santiago\Desktop\faku\Programacion I\Git_PRO1\HUALPA\CLASE 8_10"
+RUTA_ARCHIVO = r"C:\Users\Santiago\Desktop\faku\Programacion I\Git_PRO1\HUALPA\CLASE 8_10\listaAlumnosC3.txt" #Python ignora los caracteres de escape
 
 try:
     # Abrimos el archivo en modo lectura
