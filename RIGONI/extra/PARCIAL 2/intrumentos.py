@@ -40,7 +40,7 @@ def mostrar_inventario(lista):
             print(f'- {elem['instrumento'].capitalize()} - {elem['unidades']} unidades.')
 
 
-def agregar_instrumentos(lista):
+def agregar_elementos(lista):
     try:
         cant_inst = int(input('Cuantos instrumentos quiere agregar? '))
         for i in range(cant_inst):
@@ -57,24 +57,24 @@ def agregar_instrumentos(lista):
         print('Debés ingresar un número entero.')
 
 
-def editar_instrumento(inventario):
+def editar_elemento(lista):
     instrumento = input('Ingrese el nombre del instrumento que quiere editar: ').lower().strip()
-    for elem in inventario:
+    for elem in lista:
         if(instrumento == elem['instrumento']):
             while True:
                 try:
                     unidad = int(input('Ingrese las unidades del instrumento: '))
                     elem['unidades'] = unidad
-                    actualizar_datos(inventario)
-                    return inventario
+                    actualizar_datos(lista)
+                    return lista
                 except ValueError:
                     print('Ingrese un número entero.')
 
 
-def eliminar_instrumento(inventario):
+def eliminar_elemento(lista):
     lista_nva = []
     instrumento = input('Ingrese el nombre del instrumento que quiere eliminar: ').lower().strip()
-    for elem in inventario:
+    for elem in lista:
         if(instrumento == elem['instrumento']): # Ignora el elemento 
             continue
         lista_nva.append(elem) # Actualiza la lista nueva (ignorando el elemento a eliminar)
@@ -82,28 +82,28 @@ def eliminar_instrumento(inventario):
     return lista_nva
 
 
-def mostrar_sin_stock(inventario):
-    for elem in inventario:
+def mostrar_sin_stock(lista):
+    for elem in lista:
         if(elem['unidades'] == 0):
             print(f'- {elem['instrumento']}')
 
 
-def vender_comprar(inventario):
+def vender_comprar(lista):
     inst = input('Qué instrumento quiere vender o comprar? ').lower().strip()
-    for elem in inventario:
+    for elem in lista:
         if inst == elem['instrumento']:
             opcion = input('Querés vender o comprar? (v/c): ').lower().strip()
             if opcion not in ('v', 'c'):
                 print('Opción incorrecta.')
-                return inventario
+                return lista
             try:
                 cant = int(input('Cuántas unidades? '))
                 if cant <= 0:
                     print('La cantidad debe ser positiva.')
-                    return inventario
+                    return lista
             except ValueError:
                 print('Las unidades deben ser números enteros.')
-                return inventario
+                return lista
             if opcion == 'v':
                 if elem['unidades'] < cant:
                     print('No hay unidades disponibles.')
@@ -113,19 +113,19 @@ def vender_comprar(inventario):
             else:  # opcion == 'c'
                 elem['unidades'] += cant
                 print('Unidades agregadas.')
-            actualizar_datos(inventario)
-            return inventario
+            actualizar_datos(lista)
+            return lista
     print('Instrumento no encontrado.')
-    return inventario
+    return lista
 
 
 
-def consultar_stock(inventario):
-    if not inventario:
+def consultar_stock(lista):
+    if not lista:
         print('No hay instrumentos disponibles.')
     else:
         instrumento = input('Ingrese el nombre del instrumento que quiere consultar: ').lower().strip()
-        for elem in inventario:
+        for elem in lista:
             if instrumento == elem['instrumento']:
                 print(f'{elem['unidades']} unidades disponibles.')
             else:
@@ -156,11 +156,11 @@ def programa_principal():
                 case 1:
                     mostrar_inventario(inventario) # usar la lista en memoria
                 case 2:
-                    inventario = agregar_instrumentos(inventario)
+                    inventario = agregar_elementos(inventario)
                 case 3:
-                    inventario = editar_instrumento(inventario)
+                    inventario = editar_elemento(inventario)
                 case 4:
-                    inventario = eliminar_instrumento(inventario)
+                    inventario = eliminar_elemento(inventario)
                 case 5:
                     mostrar_sin_stock(inventario)
                 case 6:
